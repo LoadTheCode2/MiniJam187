@@ -1,7 +1,7 @@
 extends PlayerState
 
 func process_state(delta):
-	if player.input_dir != 0:
+	if player.input_dir != 0.0:
 		Transition.emit(self, "run")
 
 func physics_process_state(delta):
