@@ -1,6 +1,5 @@
 [gd_scene load_steps=4 format=4 uid="uid://8bemcvusyanb"]
 
-<<<<<<< Updated upstream
 [ext_resource type="Texture2D" uid="uid://4mylrjal56dm" path="res://assets/tilemaps/clouds.png" id="1_jwv3a"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dopym"]
@@ -37,9 +36,3 @@ sources/0 = SubResource("TileSetAtlasSource_dopym")
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAAFAAEAAAAEAAEAAAAMAAMAAAAAAAMAAAARAPn/AAAEAAEAAAAUAPn/AAAAAAAAAAATAP3/AAACAAAAAAATAAAAAAAFAAUAAAAKAPz/AAAAAAEAAAAQAPz/AAAAAAEAAAAZAPj/AAAEAAEAAAAWAPz/AAAAAAAAAAA=")
 tile_set = SubResource("TileSet_ootpb")
-=======
-[node name="Node2D" type="Node2D"]
-
-[node name="TileMap" type="TileMap" parent="."]
-format = 2
->>>>>>> Stashed changes
