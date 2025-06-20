@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=4 format=4 uid="uid://bt3d6crw7ee63"]
+=======
+[gd_scene load_steps=4 format=4 uid="uid://bg0v7lyw1u4un"]
+>>>>>>> Stashed changes
 
 [ext_resource type="Texture2D" uid="uid://4mylrjal56dm" path="res://assets/tilemaps/clouds.png" id="1_jwv3a"]
 
