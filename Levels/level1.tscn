@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=4 uid="uid://d4mo7mjtb6ynp"]
+[gd_scene load_steps=4 format=4 uid="uid://llvlpuuvaolw"]
 
 [ext_resource type="Texture2D" uid="uid://4mylrjal56dm" path="res://assets/tilemaps/clouds.png" id="1_jwv3a"]
 
@@ -9,26 +9,34 @@ texture = ExtResource("1_jwv3a")
 2:0/size_in_atlas = Vector2i(2, 1)
 2:0/0 = 0
 2:0/0/texture_origin = Vector2i(8, 0)
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-22, 3, 7, 3, 7, 8, -22, 8)
 4:0/size_in_atlas = Vector2i(2, 1)
 4:0/0 = 0
 4:0/0/texture_origin = Vector2i(8, 0)
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-23, 3, 6, 3, 6, 8, -23, 8)
 4:1/size_in_atlas = Vector2i(4, 2)
 4:1/0 = 0
 4:1/0/texture_origin = Vector2i(8, 8)
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-37, 2, 22, 2, 22, 8, -37, 8)
 0:1/size_in_atlas = Vector2i(4, 2)
 0:1/0 = 0
 0:1/0/texture_origin = Vector2i(8, 8)
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-35, 0, 19, 0, 19, 8, -35, 8)
 0:3/size_in_atlas = Vector2i(8, 2)
 0:3/0 = 0
 0:3/0/texture_origin = Vector2i(8, 8)
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-68, 3, 52, 3, 52, 8, -68, 8)
 0:5/size_in_atlas = Vector2i(5, 2)
 0:5/0 = 0
 0:5/0/texture_origin = Vector2i(0, 8)
+0:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-40, 4, 39, 4, 39, 8, -40, 8)
 5:5/size_in_atlas = Vector2i(3, 2)
 5:5/0 = 0
 5:5/0/texture_origin = Vector2i(0, 8)
+5:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-24, 4, 23, 4, 23, 8, -24, 8)
 
 [sub_resource type="TileSet" id="TileSet_ootpb"]
+physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_dopym")
 
 [node name="Level1" type="Node2D"]
@@ -41,5 +49,5 @@ offset_bottom = 266.0
 color = Color(0.411289, 0.771965, 0.941983, 1)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAFAAEAAAAEAAEAAAAMAAMAAAAAAAMAAAAQAPz/AAAAAAEAAAAGAP3/AAAAAAEAAAANAPb/AAAFAAUAAAAFAPP/AAAEAAEAAAAPAO7/AAAAAAUAAAAGAOb/AAACAAAAAAAQAOH/AAAEAAAAAAAKAOr/AAACAAAAAAAHANv/AAAFAAUAAAAKAOH/AAABAAAAAAANANT/AAAAAAAAAAAEAND/AAACAAAAAAAEANf/AAAEAAAAAAANAM3/AAABAAAAAAAFAMD/AAAFAAUAAAANALT/AAABAAAAAAAHAKD/AAAAAAMAAAA=")
+tile_map_data = PackedByteArray("AAAFAAEAAAAEAAEAAAAQAPz/AAAAAAEAAAAGAP3/AAAAAAEAAAANAPb/AAAFAAUAAAAFAPP/AAAEAAEAAAAPAO7/AAAAAAUAAAAGAOb/AAACAAAAAAAQAOH/AAAEAAAAAAAKAOr/AAACAAAAAAAHANv/AAAFAAUAAAAKAOH/AAABAAAAAAANANT/AAAAAAAAAAAEAND/AAACAAAAAAAEANf/AAAEAAAAAAANAM3/AAABAAAAAAAFAMD/AAAFAAUAAAANALT/AAABAAAAAAAHAKD/AAAAAAMAAAAMAAMAAAAAAAMAAAA=")
 tile_set = SubResource("TileSet_ootpb")
