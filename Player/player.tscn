@@ -92,6 +92,7 @@ states/Idle/node = SubResource("AnimationNodeAnimation_k53q1")
 states/Idle/position = Vector2(360.8, 92.4)
 
 [node name="Player" type="CharacterBody2D"]
+scale = Vector2(4, 4)
 script = ExtResource("1_gwnis")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
