@@ -5,3 +5,4 @@ func process_state(delta):
 		Transition.emit("Idle")
 func physics_process_state(delta):
 	player.velocity = player.velocity.move_toward(player.SPEED * player.input_dir, player.ACCELERATION * delta)
+	anim_tree.set("parameters/R+I/blend_position", player.input_dir)
