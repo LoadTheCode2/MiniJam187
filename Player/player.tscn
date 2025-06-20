@@ -1,0 +1,148 @@
+[gd_scene load_steps=14 format=4 uid="uid://bxs8alsuqmhqj"]
+
+[ext_resource type="Script" uid="uid://qejbebp1ilr6" path="res://Player/player.gd" id="1_gwnis"]
+[ext_resource type="Script" uid="uid://dphhu462ydequ" path="res://Player/state_machine.gd" id="1_l8h54"]
+[ext_resource type="Script" uid="uid://clw3co35h1by5" path="res://Player/idle.gd" id="2_btcbx"]
+[ext_resource type="Script" uid="uid://bsl110rakbvyl" path="res://Player/run.gd" id="3_gwnis"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ntmi"]
+size = Vector2(5, 7)
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_hvfyp"]
+_data = PackedByteArray("AAADAAUAAAABAAAAMAAAADAAAADgAAAAUklGRtgAAABXRUJQVlA4TMsAAAAvL8ALEB8gECD8XxizYkMgQPhfcWSGQICwos5/gfkPwN+SgtPYtl1lfzL4J/GfLm4J5KRyBv3tK4H0JDO5H2R2dML9KPAR/SebtLFb+gm/v7zRpAKXrL4k+NBdggh1B9cttJxHr4/qCxdhdEb1nYF8qMsZdn6o7/iDSQUqnu4SwMvTvRVglTQsKhGpprGVBOycZ6sJpJoBcRHKGWzVAzHQ9KDsgc1AJgO7CH+yvPnmutXyBt5z7ZKF0Vmru2+514ddThudYedrO5/QAAA=")
+size_override = Vector2(48, 48)
+
+[sub_resource type="Animation" id="Animation_l8h54"]
+length = 0.65
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_gwnis"]
+length = 0.45
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [6, 7]
+}
+
+[sub_resource type="Animation" id="Animation_btcbx"]
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_4ntmi"]
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k53q1"]
+_data = {
+&"Idle": SubResource("Animation_l8h54"),
+&"Jump": SubResource("Animation_gwnis"),
+&"Run_l": SubResource("Animation_btcbx"),
+&"Run_r": SubResource("Animation_4ntmi")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_k53q1"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_4ntmi"]
+states/Idle/node = SubResource("AnimationNodeAnimation_k53q1")
+states/Idle/position = Vector2(360.8, 92.4)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_gwnis")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0.5, 4.5)
+shape = SubResource("RectangleShape2D_4ntmi")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = SubResource("PortableCompressedTexture2D_hvfyp")
+hframes = 3
+vframes = 3
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": false,
+"layer_section": false,
+"output_section": false,
+"pending_changes": {},
+"slice_section": false
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"i_mode": 0,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "AnimationPlayer",
+"slice": "",
+"source": "res://Player/Animations/Spritesheet.ase",
+"source_uid": 1946287818515220165
+}
+metadata/_aseprite_wizard_source_file_hash_ = "21cb874b028fa1616d669c622d9d0dc1"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_k53q1")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_4ntmi")
+advance_expression_base_node = NodePath("../StateMachine")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("1_l8h54")
+initial_state = NodePath("idle")
+
+[node name="idle" type="Node" parent="StateMachine"]
+script = ExtResource("2_btcbx")
+
+[node name="run" type="Node" parent="StateMachine"]
+script = ExtResource("3_gwnis")
