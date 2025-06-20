@@ -14,6 +14,7 @@ func _process(delta):
 	current_state.process_state(delta)
 	
 func _physics_process(delta):
+	print(current_state)
 	current_state.physics_process_state(delta)
 	
 func on_transition(current_state: PlayerState, new_state: String):
