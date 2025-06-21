@@ -1,6 +1,6 @@
 extends Node
 
-@export var initial_state: PlayerState 
+@export var initial_state: PlayerState
 @onready var current_state: PlayerState = initial_state
 
 var states: Dictionary = {}
@@ -16,7 +16,7 @@ func _process(delta):
 func _physics_process(delta):
 	current_state.physics_process_state(delta)
 	
-func on_transition(current_state: PlayerState, new_state: String):
+func on_transition(new_state: String):
 	current_state.exit()
 	current_state = states[new_state]
 	current_state.enter()

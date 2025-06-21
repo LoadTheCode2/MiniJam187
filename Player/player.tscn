@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://bxs8alsuqmhqj"]
+[gd_scene load_steps=20 format=4 uid="uid://bxs8alsuqmhqj"]
 
 [ext_resource type="Script" uid="uid://qejbebp1ilr6" path="res://Player/player.gd" id="1_gwnis"]
 [ext_resource type="Script" uid="uid://dphhu462ydequ" path="res://Player/state_machine.gd" id="1_l8h54"]
@@ -8,7 +8,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ntmi"]
 size = Vector2(5, 7)
 
-[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_hvfyp"]
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_gwnis"]
 _data = PackedByteArray("AAADAAUAAAABAAAAMAAAADAAAADgAAAAUklGRtgAAABXRUJQVlA4TMsAAAAvL8ALEB8gECD8XxizYkMgQPhfcWSGQICwos5/gfkPwN+SgtPYtl1lfzL4J/GfLm4J5KRyBv3tK4H0JDO5H2R2dML9KPAR/SebtLFb+gm/v7zRpAKXrL4k+NBdggh1B9cttJxHr4/qCxdhdEb1nYF8qMsZdn6o7/iDSQUqnu4SwMvTvRVglTQsKhGpprGVBOycZ6sJpJoBcRHKGWzVAzHQ9KDsgc1AJgO7CH+yvPnmutXyBt5z7ZKF0Vmru2+514ddThudYedrO5/QAAA=")
 size_override = Vector2(48, 48)
 
@@ -84,15 +84,46 @@ _data = {
 &"Run_r": SubResource("Animation_4ntmi")
 }
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gwnis"]
+animation = &"Run_l"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_k53q1"]
+animation = &"Run_r"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fhl08"]
 animation = &"Idle"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vtle1"]
+animation = &"Jump"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_od3ui"]
+animation = &"Jump"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_gwnis"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_gwnis")
+blend_point_0/pos = Vector2(-1, 0)
+blend_point_1/node = SubResource("AnimationNodeAnimation_k53q1")
+blend_point_1/pos = Vector2(1, 0)
+blend_point_2/node = SubResource("AnimationNodeAnimation_fhl08")
+blend_point_2/pos = Vector2(0, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_vtle1")
+blend_point_3/pos = Vector2(0, -2)
+blend_point_4/node = SubResource("AnimationNodeAnimation_od3ui")
+blend_point_4/pos = Vector2(0, 2)
+blend_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vtle1"]
+switch_mode = 2
+advance_mode = 2
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_4ntmi"]
-states/Idle/node = SubResource("AnimationNodeAnimation_k53q1")
-states/Idle/position = Vector2(360.8, 92.4)
+states/R+I+J/node = SubResource("AnimationNodeBlendSpace2D_gwnis")
+states/R+I+J/position = Vector2(366.4, 72.4)
+states/Start/position = Vector2(197.6, 99.84)
+transitions = ["Start", "R+I+J", SubResource("AnimationNodeStateMachineTransition_vtle1")]
 
 [node name="Player" type="CharacterBody2D"]
-scale = Vector2(4, 4)
+scale = Vector2(2, 2)
 script = ExtResource("1_gwnis")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -102,8 +133,8 @@ shape = SubResource("RectangleShape2D_4ntmi")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-scale = Vector2(4, 4)
-texture = SubResource("PortableCompressedTexture2D_hvfyp")
+scale = Vector2(2, 2)
+texture = SubResource("PortableCompressedTexture2D_gwnis")
 hframes = 3
 vframes = 3
 metadata/_aseprite_wizard_interface_config_ = {
@@ -125,7 +156,7 @@ metadata/_aseprite_wizard_config_ = {
 "player": "AnimationPlayer",
 "slice": "",
 "source": "res://Player/Animations/Spritesheet.ase",
-"source_uid": 1946287818515220165
+"source_uid": 7556397331656232115
 }
 metadata/_aseprite_wizard_source_file_hash_ = "21cb874b028fa1616d669c622d9d0dc1"
 
@@ -135,16 +166,21 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
+unique_name_in_owner = true
+root_node = NodePath("%AnimationTree/..")
 tree_root = SubResource("AnimationNodeStateMachine_4ntmi")
-advance_expression_base_node = NodePath("../StateMachine")
+advance_expression_base_node = NodePath("..")
 anim_player = NodePath("../AnimationPlayer")
+parameters/R+I+J/blend_position = Vector2(-0.00272977, 0.139738)
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("1_l8h54")
-initial_state = NodePath("idle")
+initial_state = NodePath("Idle")
 
-[node name="idle" type="Node" parent="StateMachine"]
+[node name="Idle" type="Node" parent="StateMachine"]
 script = ExtResource("2_btcbx")
 
-[node name="run" type="Node" parent="StateMachine"]
+[node name="Run" type="Node" parent="StateMachine"]
 script = ExtResource("3_gwnis")
+
+[node name="Camera2D" type="Camera2D" parent="."]
