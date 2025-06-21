@@ -44,16 +44,17 @@ sources/0 = SubResource("TileSetAtlasSource_dopym")
 
 [node name="Level1" type="Node2D"]
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Background" type="ColorRect" parent="."]
 offset_left = 3.0
-offset_top = -1893.0
-offset_right = 357.0
-offset_bottom = 266.0
+offset_top = -3843.0
+offset_right = 822.0
+offset_bottom = 378.0
 color = Color(0.411289, 0.771965, 0.941983, 1)
 
-[node name="TileMapLayer" type="TileMapLayer" parent="."]
+[node name="Terrain" type="TileMapLayer" parent="."]
+scale = Vector2(2, 2)
 tile_map_data = PackedByteArray("AAAFAAEAAAAEAAEAAAAQAPz/AAAAAAEAAAAGAP3/AAAAAAEAAAANAPb/AAAFAAUAAAAFAPP/AAAEAAEAAAAPAO7/AAAAAAUAAAAGAOb/AAACAAAAAAAQAOH/AAAEAAAAAAAKAOr/AAACAAAAAAAHANv/AAAFAAUAAAAKAOH/AAABAAAAAAANANT/AAAAAAAAAAAEAND/AAACAAAAAAAEANf/AAAEAAAAAAANAM3/AAABAAAAAAAFAMD/AAAFAAUAAAANALT/AAABAAAAAAAHAKD/AAAAAAMAAAAMAAMAAAAAAAMAAAA=")
 tile_set = SubResource("TileSet_ootpb")
 
 [node name="Player" parent="." instance=ExtResource("2_i4kf4")]
-position = Vector2(75, 105)
+position = Vector2(378, 49)

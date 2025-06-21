@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://bsl110rakbvyl" path="res://Player/run.gd" id="3_gwnis"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ntmi"]
-size = Vector2(5, 7)
+size = Vector2(10, 13.5)
 
 [sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_gwnis"]
 _data = PackedByteArray("AAADAAUAAAABAAAAMAAAADAAAADgAAAAUklGRtgAAABXRUJQVlA4TMsAAAAvL8ALEB8gECD8XxizYkMgQPhfcWSGQICwos5/gfkPwN+SgtPYtl1lfzL4J/GfLm4J5KRyBv3tK4H0JDO5H2R2dML9KPAR/SebtLFb+gm/v7zRpAKXrL4k+NBdggh1B9cttJxHr4/qCxdhdEb1nYF8qMsZdn6o7/iDSQUqnu4SwMvTvRVglTQsKhGpprGVBOycZ6sJpJoBcRHKGWzVAzHQ9KDsgc1AJgO7CH+yvPnmutXyBt5z7ZKF0Vmru2+514ddThudYedrO5/QAAA=")
@@ -127,8 +127,7 @@ scale = Vector2(2, 2)
 script = ExtResource("1_gwnis")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(0.5, 4.5)
+position = Vector2(1, 9.25)
 shape = SubResource("RectangleShape2D_4ntmi")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -137,6 +136,7 @@ scale = Vector2(2, 2)
 texture = SubResource("PortableCompressedTexture2D_gwnis")
 hframes = 3
 vframes = 3
+frame = 1
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
