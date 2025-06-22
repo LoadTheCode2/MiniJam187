@@ -15,6 +15,10 @@ run/main_scene="uid://c27i5c45c840s"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Music="*res://HUD/music.tscn"
+
 [display]
 
 window/size/mode=2

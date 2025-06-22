@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0ds3lbnls3k5"]
+
+[ext_resource type="AudioStream" uid="uid://cm68s2b16dxuq" path="res://assets/music/peak.wav" id="1_x8a02"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_x8a02")
+autoplay = true
