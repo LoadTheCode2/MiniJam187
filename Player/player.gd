@@ -12,6 +12,8 @@ var JUMP_MULTIPLIER: float = 200.0
 var gravity: float = 1500.0
 
 func _physics_process(delta):
+	if Input.is_action_just_pressed("ms"):
+		get_tree().change_scene_to_file("res://main_screen.tscn")
 	input_dir = Vector2(Input.get_axis("left", "right"), 0.0)
 	anim_tree.set("parameters/All/blend_position", velocity)
 	
