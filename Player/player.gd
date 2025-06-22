@@ -22,6 +22,8 @@ func _physics_process(delta):
 		energy_meter.energy_remaining -= energy_meter.jump_strength
 		
 	if velocity.y != 0.0:
+		energy_meter.dark_sprite.visible = false
+		energy_meter.lastFlash = 0
 		energy_meter.lastEnergyRegen = 0
 	
 	move_and_slide()
