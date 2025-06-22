@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmgbjhhdt7prb"]
+
+[ext_resource type="PackedScene" uid="uid://b1ep44jkyolt4" path="res://HUD/EnergyMeter/energy_meter.tscn" id="2_4kcle"]
+
+[node name="GameUI" type="CanvasLayer"]
+
+[node name="EnergyMeter" parent="." instance=ExtResource("2_4kcle")]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_right = 180
+theme_override_constants/margin_bottom = 52

@@ -1,9 +1,10 @@
-[gd_scene load_steps=21 format=4 uid="uid://bxs8alsuqmhqj"]
+[gd_scene load_steps=22 format=4 uid="uid://bxs8alsuqmhqj"]
 
 [ext_resource type="Script" uid="uid://qejbebp1ilr6" path="res://Player/player.gd" id="1_gwnis"]
 [ext_resource type="Script" uid="uid://dphhu462ydequ" path="res://Player/state_machine.gd" id="1_l8h54"]
 [ext_resource type="Script" uid="uid://clw3co35h1by5" path="res://Player/idle.gd" id="2_btcbx"]
 [ext_resource type="Script" uid="uid://bsl110rakbvyl" path="res://Player/run.gd" id="3_gwnis"]
+[ext_resource type="PackedScene" uid="uid://dmgbjhhdt7prb" path="res://HUD/game_ui.tscn" id="5_k53q1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ntmi"]
 size = Vector2(10, 13.5)
@@ -11,6 +12,22 @@ size = Vector2(10, 13.5)
 [sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_gwnis"]
 _data = PackedByteArray("AAADAAUAAAABAAAAQAAAADAAAAD6AAAAUklGRvIAAABXRUJQVlA4TOYAAAAvP8ALEB8gECD8XxizYkMgQPhfcWSGQICwos5/gfkPwN+SAhRr25ZFNy6dSIddfEvALblDpn5LwL7IOb4fImNtVsL7fv/45Ij+M3LbNoxyk9N28zP4+1PIaExV+1tWR2YpXhAvhGkvoeHgvoe2C7GqhukPUH7lwhxciPEV5Q9ywIUfN3grVzAZOOQ8fwCb5h+Yaki8oPt5Cz28QvVrFSm98b7A1FLYahxuWdWvrcUxtTQ0nF6opLG1EPQHcMhDKwSVkKzpvtNpOIRV9ufH79rH7zo4kq4l8pH+JArWEgUj+vNI38GdAw==")
 size_override = Vector2(64, 48)
+
+[sub_resource type="Animation" id="Animation_k53q1"]
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [8, 9]
+}
 
 [sub_resource type="Animation" id="Animation_l8h54"]
 length = 0.65
@@ -76,22 +93,6 @@ tracks/0/keys = {
 "values": [2, 3]
 }
 
-[sub_resource type="Animation" id="Animation_k53q1"]
-length = 0.4
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = false
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [8, 9]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_k53q1"]
 _data = {
 &"Fall": SubResource("Animation_k53q1"),
@@ -141,7 +142,6 @@ states/Start/position = Vector2(197.6, 99.84)
 transitions = ["Start", "All", SubResource("AnimationNodeStateMachineTransition_vtle1")]
 
 [node name="Player" type="CharacterBody2D"]
-scale = Vector2(2, 2)
 script = ExtResource("1_gwnis")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -154,6 +154,7 @@ scale = Vector2(2, 2)
 texture = SubResource("PortableCompressedTexture2D_gwnis")
 hframes = 4
 vframes = 3
+frame = 1
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -190,6 +191,9 @@ advance_expression_base_node = NodePath("..")
 anim_player = NodePath("../AnimationPlayer")
 parameters/All/blend_position = Vector2(-0.208371, 0.31441)
 
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.5, 1.5)
+
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("1_l8h54")
 initial_state = NodePath("Idle")
@@ -200,4 +204,4 @@ script = ExtResource("2_btcbx")
 [node name="Run" type="Node" parent="StateMachine"]
 script = ExtResource("3_gwnis")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="GameUI" parent="." instance=ExtResource("5_k53q1")]

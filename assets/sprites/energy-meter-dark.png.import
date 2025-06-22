@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://din88yade72fd"
-path="res://.godot/imported/jump-meter.png-df53597e32ea5f763bf9d7696076821f.ctex"
+uid="uid://d2p86hfc7b7q7"
+path="res://.godot/imported/energy-meter-dark.png-f9fef2b25c141bb3128b62bb95ae2659.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/jump-meter.png"
-dest_files=["res://.godot/imported/jump-meter.png-df53597e32ea5f763bf9d7696076821f.ctex"]
+source_file="res://assets/sprites/energy-meter-dark.png"
+dest_files=["res://.godot/imported/energy-meter-dark.png-f9fef2b25c141bb3128b62bb95ae2659.ctex"]
 
 [params]
 
