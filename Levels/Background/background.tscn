@@ -9,5 +9,5 @@ script = ExtResource("1_p10cg")
 motion_mirroring = Vector2(1, 1)
 
 [node name="ColorRect" type="ColorRect" parent="ParallaxLayer"]
-offset_right = 1152.0
-offset_bottom = 648.0
+offset_right = 405.0
+offset_bottom = 720.0

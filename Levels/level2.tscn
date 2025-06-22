@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=4 uid="uid://bwuv6532b0y48"]
+[gd_scene load_steps=6 format=4 uid="uid://bwuv6532b0y48"]
 
 [ext_resource type="Texture2D" uid="uid://4mylrjal56dm" path="res://assets/tilemaps/clouds.png" id="1_ty1rc"]
 [ext_resource type="PackedScene" uid="uid://bxs8alsuqmhqj" path="res://Player/player.tscn" id="2_m135w"]
+[ext_resource type="PackedScene" uid="uid://dh26k4ryon0tu" path="res://Levels/Background/background.tscn" id="3_m135w"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pcft3"]
 texture = ExtResource("1_ty1rc")
@@ -52,4 +53,7 @@ tile_map_data = PackedByteArray("AADs/8z/AAAAAAMAAAD//87/AAAAAAMAAAAGALb/AAAAAAM
 tile_set = SubResource("TileSet_p0prn")
 
 [node name="Player" parent="." instance=ExtResource("2_m135w")]
-position = Vector2(-646, -2181)
+position = Vector2(-656, -1768)
+
+[node name="Background" parent="." instance=ExtResource("3_m135w")]
+color = Color(0.501961, 0, 1, 1)
