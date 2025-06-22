@@ -6,8 +6,9 @@ var input_dir: Vector2
 var SPEED: float = 150.0
 var DECELERATION: float = 600.0
 
-var JUMP: float = -400.0
-var gravity: float = 980.0
+var BASE_JUMP: float = -800.0
+var JUMP_MULTIPLIER: float = -200.0
+var gravity: float = 1500.0
 
 func _physics_process(delta):
 	input_dir = Vector2(Input.get_axis("left", "right"), 0.0)
@@ -15,7 +16,7 @@ func _physics_process(delta):
 	
 	if not is_on_floor():
 		velocity.y += gravity * delta
-	if Input.is_action_pressed("jump"):
-		velocity.y = JUMP
+	elif Input.is_action_just_pressed("jump"):
+		velocity.y = BASE_JUMP + JUMP_MULTIPLIER * $GameUi/JumpMeter.jump_strength
 	
 	move_and_slide()

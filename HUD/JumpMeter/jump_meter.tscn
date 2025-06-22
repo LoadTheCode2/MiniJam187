@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://crpfdsc2et3r5"]
+
+[ext_resource type="Texture2D" uid="uid://din88yade72fd" path="res://HUD/JumpMeter/jump-meter.png" id="1_18hk8"]
+[ext_resource type="Script" uid="uid://bsvxu8ecken51" path="res://HUD/JumpMeter/jump_meter.gd" id="1_gp2qu"]
+
+[node name="JumpMeter" type="MarginContainer"]
+script = ExtResource("1_gp2qu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(3, 3)
+texture = ExtResource("1_18hk8")
+hframes = 5
