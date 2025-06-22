@@ -15,8 +15,7 @@ var lastFlash := 0.0
 var lastFlashSpeed := 0.5
 
 var lastEnergyRegen := 0.0
-var lastEnergyRegenSpeed := 2
-
+var lastEnergyRegenSpeed := 1
 
 
 func _process(delta: float) -> void:
