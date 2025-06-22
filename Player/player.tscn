@@ -204,4 +204,4 @@ script = ExtResource("2_btcbx")
 [node name="Run" type="Node" parent="StateMachine"]
 script = ExtResource("3_gwnis")
 
-[node name="GameUi" parent="." instance=ExtResource("5_k53q1")]
+[node name="GameUI" parent="." instance=ExtResource("5_k53q1")]

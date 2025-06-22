@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dh26k4ryon0tu"]
 
-[ext_resource type="Script" uid="uid://cks4km64rvbdq" path="res://HUD/background.gd" id="1_p10cg"]
+[ext_resource type="Script" uid="uid://cks4km64rvbdq" path="res://Levels/Background/background.gd" id="1_p10cg"]
 
 [node name="Background" type="ParallaxBackground"]
 script = ExtResource("1_p10cg")

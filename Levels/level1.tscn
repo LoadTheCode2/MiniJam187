@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://4mylrjal56dm" path="res://assets/tilemaps/clouds.png" id="1_jwv3a"]
 [ext_resource type="PackedScene" uid="uid://bxs8alsuqmhqj" path="res://Player/player.tscn" id="2_i4kf4"]
-[ext_resource type="PackedScene" uid="uid://dh26k4ryon0tu" path="res://HUD/background.tscn" id="3_fy36t"]
+[ext_resource type="PackedScene" uid="uid://dh26k4ryon0tu" path="res://Levels/Background/background.tscn" id="3_fy36t"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dopym"]
 texture = ExtResource("1_jwv3a")
