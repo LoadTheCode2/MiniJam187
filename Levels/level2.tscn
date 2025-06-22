@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=4 uid="uid://doa5q45p3cifh"]
+[gd_scene load_steps=6 format=4 uid="uid://doa5q45p3cifh"]
 
 [ext_resource type="Texture2D" uid="uid://4mylrjal56dm" path="res://assets/tilemaps/clouds.png" id="1_ty1rc"]
 [ext_resource type="PackedScene" uid="uid://bxs8alsuqmhqj" path="res://Player/player.tscn" id="2_m135w"]
+[ext_resource type="PackedScene" path="res://Levels/Background/background.tscn" id="3_m135w"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pcft3"]
 texture = ExtResource("1_ty1rc")
@@ -42,7 +43,7 @@ texture = ExtResource("1_ty1rc")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_pcft3")
 
-[node name="Level2" type="Node2D"]
+[node name="level2" type="Node2D"]
 
 [node name="Terrain" type="TileMapLayer" parent="."]
 texture_filter = 1
@@ -54,13 +55,5 @@ tile_set = SubResource("TileSet_p0prn")
 [node name="Player" parent="." instance=ExtResource("2_m135w")]
 position = Vector2(-646, -2181)
 
-[node name="Background" type="CanvasLayer" parent="."]
-layer = -1
-
-[node name="ColorRect" type="ColorRect" parent="Background"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Background" parent="." instance=ExtResource("3_m135w")]
 color = Color(0.533333, 0, 1, 1)

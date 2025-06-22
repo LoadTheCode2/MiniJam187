@@ -192,7 +192,6 @@ anim_player = NodePath("../AnimationPlayer")
 parameters/All/blend_position = Vector2(-0.208371, 0.31441)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("1_l8h54")
