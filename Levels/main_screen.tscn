@@ -1,4 +1,10 @@
-[gd_scene format=3 uid="uid://c27i5c45c840s"]
+[gd_scene load_steps=6 format=3 uid="uid://c27i5c45c840s"]
+
+[ext_resource type="Script" uid="uid://cj0q6cdf6beju" path="res://HUD/button.gd" id="1_hrw76"]
+[ext_resource type="Script" uid="uid://cmqq3fjoh17ck" path="res://Levels/button_2.gd" id="2_ydjn6"]
+[ext_resource type="Script" uid="uid://b1ligc7jhxjsi" path="res://Levels/button_3.gd" id="3_gsmjn"]
+[ext_resource type="Script" uid="uid://dgevs1np7hphm" path="res://Levels/button_4.gd" id="4_xggc8"]
+[ext_resource type="Script" uid="uid://cb6vj7kxg02yv" path="res://Levels/button_5.gd" id="5_47jkc"]
 
 [node name="MainScreen" type="CenterContainer"]
 anchors_preset = 15
@@ -21,23 +27,36 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_vertical = 3
 text = "Level One"
+script = ExtResource("1_hrw76")
+level_path = "uid://8bemcvusyanb"
 
 [node name="Button2" type="Button" parent="ScrollContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 text = "Level Two"
+script = ExtResource("2_ydjn6")
+level_path = "uid://doa5q45p3cifh"
 
 [node name="Button3" type="Button" parent="ScrollContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 text = "Level Three"
+script = ExtResource("3_gsmjn")
 
 [node name="Button4" type="Button" parent="ScrollContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 text = "Level Four"
+script = ExtResource("4_xggc8")
 
 [node name="Button5" type="Button" parent="ScrollContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 text = "Level Five"
+script = ExtResource("5_47jkc")
+
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/Button" to="ScrollContainer/VBoxContainer/Button" method="on_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/Button2" to="ScrollContainer/VBoxContainer/Button2" method="on_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/Button3" to="ScrollContainer/VBoxContainer/Button3" method="on_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/Button4" to="ScrollContainer/VBoxContainer/Button4" method="on_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/Button5" to="ScrollContainer/VBoxContainer/Button5" method="on_pressed"]

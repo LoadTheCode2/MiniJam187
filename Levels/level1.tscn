@@ -54,4 +54,5 @@ tile_set = SubResource("TileSet_ootpb")
 position = Vector2(378, 49)
 
 [node name="Background" parent="." instance=ExtResource("3_fy36t")]
+follow_viewport_enabled = true
 color = Color(0, 0.666667, 1, 1)
