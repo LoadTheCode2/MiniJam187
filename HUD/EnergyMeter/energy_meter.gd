@@ -11,6 +11,9 @@ var jump_strength := 1:
 	set(value):
 		jump_strength = clamp(value, 1, 5)
 		dark_sprite.size.x = 4 + 32 * jump_strength
+		dark_sprite.visible = true
+		lastFlash = 0.0
+		lastEnergyRegen = 0.0
 var lastFlash := 0.0
 var lastFlashSpeed := 0.5
 

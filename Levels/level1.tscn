@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://4mylrjal56dm" path="res://assets/tilemaps/clouds.png" id="1_jwv3a"]
 [ext_resource type="PackedScene" uid="uid://bxs8alsuqmhqj" path="res://Player/player.tscn" id="2_i4kf4"]
-[ext_resource type="PackedScene" uid="uid://dh26k4ryon0tu" path="res://Levels/Background/background.tscn" id="3_fy36t"]
+[ext_resource type="AudioStream" uid="uid://cm68s2b16dxuq" path="res://assets/music/level-1-peak.wav" id="3_fy36t"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dopym"]
 texture = ExtResource("1_jwv3a")
@@ -53,6 +53,17 @@ tile_set = SubResource("TileSet_ootpb")
 [node name="Player" parent="." instance=ExtResource("2_i4kf4")]
 position = Vector2(378, 49)
 
-[node name="Background" parent="." instance=ExtResource("3_fy36t")]
-follow_viewport_enabled = true
-color = Color(0, 0.666667, 1, 1)
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.8, 1, 1)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_fy36t")
+autoplay = true
