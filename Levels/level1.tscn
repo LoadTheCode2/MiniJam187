@@ -2,9 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://4mylrjal56dm" path="res://assets/tilemaps/clouds.png" id="1_jwv3a"]
 [ext_resource type="PackedScene" uid="uid://bxs8alsuqmhqj" path="res://Player/player.tscn" id="2_i4kf4"]
-[ext_resource type="AudioStream" uid="uid://cm68s2b16dxuq" path="res://assets/music/level-1-peak.wav" id="3_fy36t"]
 [ext_resource type="Script" uid="uid://dc2c7p0m2w73h" path="res://Levels/area_2d.gd" id="4_njhy2"]
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dopym"]
 texture = ExtResource("1_jwv3a")
 0:0/0 = 0
@@ -66,10 +64,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0.8, 1, 1)
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_fy36t")
-autoplay = true
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(381, 178)

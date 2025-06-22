@@ -15,9 +15,9 @@ run/main_scene="uid://c27i5c45c840s"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
 
-[audio]
+[autoload]
 
-buses/default_bus_layout="uid://dt535omqdev58"
+Music="*res://HUD/music.tscn"
 
 [display]
 
