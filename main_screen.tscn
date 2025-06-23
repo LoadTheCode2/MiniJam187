@@ -4,59 +4,69 @@
 [ext_resource type="Script" uid="uid://cmqq3fjoh17ck" path="res://HUD/Buttons/button_2.gd" id="2_ywh4s"]
 [ext_resource type="Script" uid="uid://b1ligc7jhxjsi" path="res://HUD/Buttons/button_3.gd" id="3_ue4rx"]
 [ext_resource type="Script" uid="uid://dgevs1np7hphm" path="res://HUD/Buttons/button_4.gd" id="4_sjiej"]
-[ext_resource type="Script" uid="uid://cb6vj7kxg02yv" path="res://HUD/Buttons/button_5.gd" id="5_4sv2p"]
 
-[node name="MainScreen" type="CenterContainer"]
+[sub_resource type="LabelSettings" id="LabelSettings_kwhh3"]
+font_size = 32
+
+[node name="Base" type="Node"]
+
+[node name="MainScreen" type="CenterContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="."]
+[node name="ScrollContainer" type="ScrollContainer" parent="MainScreen"]
 custom_minimum_size = Vector2(212, 250)
 layout_mode = 2
 follow_focus = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MainScreen/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Button" type="Button" parent="ScrollContainer/VBoxContainer"]
+[node name="Button" type="Button" parent="MainScreen/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 text = "Level One"
 script = ExtResource("1_4sclt")
 level_path = "uid://8bemcvusyanb"
 
-[node name="Button2" type="Button" parent="ScrollContainer/VBoxContainer"]
+[node name="Button2" type="Button" parent="MainScreen/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 text = "Level Two"
 script = ExtResource("2_ywh4s")
 level_path = "uid://doa5q45p3cifh"
 
-[node name="Button3" type="Button" parent="ScrollContainer/VBoxContainer"]
+[node name="Button3" type="Button" parent="MainScreen/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 text = "Level Three"
 script = ExtResource("3_ue4rx")
+level_path = "uid://dgu2r800e4dcl"
 
-[node name="Button4" type="Button" parent="ScrollContainer/VBoxContainer"]
+[node name="Button4" type="Button" parent="MainScreen/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 text = "Level Four"
 script = ExtResource("4_sjiej")
 
-[node name="Button5" type="Button" parent="ScrollContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-text = "Level Five"
-script = ExtResource("5_4sv2p")
+[node name="Label" type="Label" parent="."]
+offset_left = 1200.0
+offset_top = 353.0
+offset_right = 1589.0
+offset_bottom = 542.0
+size_flags_horizontal = 8
+text = "W/A/S/D to Move
+Spacebar to Jump
+Up/Down for Jump Meter
+Escape for Menu"
+label_settings = SubResource("LabelSettings_kwhh3")
 
-[connection signal="pressed" from="ScrollContainer/VBoxContainer/Button" to="ScrollContainer/VBoxContainer/Button" method="on_pressed"]
-[connection signal="pressed" from="ScrollContainer/VBoxContainer/Button2" to="ScrollContainer/VBoxContainer/Button2" method="on_pressed"]
-[connection signal="pressed" from="ScrollContainer/VBoxContainer/Button3" to="ScrollContainer/VBoxContainer/Button3" method="on_pressed"]
-[connection signal="pressed" from="ScrollContainer/VBoxContainer/Button4" to="ScrollContainer/VBoxContainer/Button4" method="on_pressed"]
-[connection signal="pressed" from="ScrollContainer/VBoxContainer/Button5" to="ScrollContainer/VBoxContainer/Button5" method="on_pressed"]
+[connection signal="pressed" from="MainScreen/ScrollContainer/VBoxContainer/Button" to="MainScreen/ScrollContainer/VBoxContainer/Button" method="on_pressed"]
+[connection signal="pressed" from="MainScreen/ScrollContainer/VBoxContainer/Button2" to="MainScreen/ScrollContainer/VBoxContainer/Button2" method="on_pressed"]
+[connection signal="pressed" from="MainScreen/ScrollContainer/VBoxContainer/Button3" to="MainScreen/ScrollContainer/VBoxContainer/Button3" method="on_pressed"]
+[connection signal="pressed" from="MainScreen/ScrollContainer/VBoxContainer/Button4" to="MainScreen/ScrollContainer/VBoxContainer/Button4" method="on_pressed"]

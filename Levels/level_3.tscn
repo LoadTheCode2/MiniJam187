@@ -1,0 +1,92 @@
+[gd_scene load_steps=9 format=4 uid="uid://dgu2r800e4dcl"]
+
+[ext_resource type="Texture2D" uid="uid://4mylrjal56dm" path="res://assets/tilemaps/clouds.png" id="1_absw3"]
+[ext_resource type="Script" uid="uid://dx2k0b7v0x6ka" path="res://Levels/wind.gd" id="1_padch"]
+[ext_resource type="PackedScene" uid="uid://r6buhj6o86lc" path="res://killzone.tscn" id="2_padch"]
+[ext_resource type="PackedScene" uid="uid://bjmaox43csp4c" path="res://level_clear.tscn" id="3_uwxw1"]
+[ext_resource type="PackedScene" uid="uid://bxs8alsuqmhqj" path="res://Player/player.tscn" id="4_ay5qi"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fa81k"]
+texture = ExtResource("1_absw3")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 4, 8, 4, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-7, 4, 7, 4, 7, 8, -7, 8)
+2:0/size_in_atlas = Vector2i(2, 1)
+2:0/0 = 0
+2:0/0/texture_origin = Vector2i(8, 0)
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-22, 3, 7, 3, 7, 8, -22, 8)
+4:0/size_in_atlas = Vector2i(2, 1)
+4:0/0 = 0
+4:0/0/texture_origin = Vector2i(8, 0)
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-23, 3, 6, 3, 6, 8, -23, 8)
+4:1/size_in_atlas = Vector2i(4, 2)
+4:1/0 = 0
+4:1/0/texture_origin = Vector2i(8, 8)
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-37, 2, 22, 2, 22, 8, -37, 8)
+0:1/size_in_atlas = Vector2i(4, 2)
+0:1/0 = 0
+0:1/0/texture_origin = Vector2i(8, 8)
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-35, 0, 19, 0, 19, 8, -35, 8)
+0:3/size_in_atlas = Vector2i(8, 2)
+0:3/0 = 0
+0:3/0/texture_origin = Vector2i(8, 8)
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-68, 3, 52, 3, 52, 8, -68, 8)
+0:5/size_in_atlas = Vector2i(5, 2)
+0:5/0 = 0
+0:5/0/texture_origin = Vector2i(0, 8)
+0:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-40, 4, 39, 4, 39, 8, -40, 8)
+5:5/size_in_atlas = Vector2i(3, 2)
+5:5/0 = 0
+5:5/0/texture_origin = Vector2i(0, 8)
+5:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-24, 4, 23, 4, 23, 8, -24, 8)
+
+[sub_resource type="TileSet" id="TileSet_ck3gp"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_fa81k")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_padch"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(200, 200, 1)
+gravity = Vector3(-200, 0, 0)
+scale_min = 5.0
+scale_max = 6.0
+
+[node name="Level3" type="Node2D"]
+script = ExtResource("1_padch")
+
+[node name="Terrain" type="TileMapLayer" parent="."]
+texture_filter = 1
+position = Vector2(279, 72)
+scale = Vector2(2, 2)
+tile_map_data = PackedByteArray("AAAOAP//AAAAAAMAAAAgAPz/AAAAAAMAAAAuAPD/AAAAAAMAAAA7AN//AAAAAAMAAAAmAND/AAAAAAMAAABHAMj/AAAAAAMAAAA6AM//AAAAAAMAAABaAMz/AAAAAAMAAABuAMH/AAAAAAMAAAB0AKv/AAAAAAMAAAAXAP7/AAAAAAEAAAAnAPf/AAAAAAEAAAAqAOj/AAAAAAEAAAAzAOT/AAAAAAEAAAA0ANn/AAAAAAEAAAAwAM3/AAAAAAEAAAA/AMr/AAAAAAEAAABQAMv/AAAAAAEAAABkAM//AAAAAAEAAABqAMv/AAAAAAEAAABjAMb/AAAAAAEAAAByALv/AAAEAAAAAABuALb/AAACAAAAAABoAK3/AAACAAAAAABhAKn/AAACAAAAAABqAKP/AAACAAAAAAA=")
+tile_set = SubResource("TileSet_ck3gp")
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.941345, 0.498602, 0.824896, 1)
+
+[node name="Area2D" parent="." instance=ExtResource("2_padch")]
+position = Vector2(1218, 206)
+
+[node name="LevelClear" parent="." instance=ExtResource("3_uwxw1")]
+position = Vector2(3503, -3173)
+
+[node name="Player" parent="." instance=ExtResource("4_ay5qi")]
+position = Vector2(721, -91)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(2819, -1544)
+scale = Vector2(20.2759, -21.4105)
+amount = 1000
+trail_enabled = true
+trail_lifetime = 4.0
+process_material = SubResource("ParticleProcessMaterial_padch")
