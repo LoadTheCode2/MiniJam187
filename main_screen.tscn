@@ -1,12 +1,57 @@
-[gd_scene load_steps=6 format=3 uid="uid://c27i5c45c840s"]
+[gd_scene load_steps=10 format=4 uid="uid://c27i5c45c840s"]
 
 [ext_resource type="Script" uid="uid://dfl0keosquuhb" path="res://HUD/Buttons/button.gd" id="1_4sclt"]
 [ext_resource type="Script" uid="uid://cmqq3fjoh17ck" path="res://HUD/Buttons/button_2.gd" id="2_ywh4s"]
 [ext_resource type="Script" uid="uid://b1ligc7jhxjsi" path="res://HUD/Buttons/button_3.gd" id="3_ue4rx"]
 [ext_resource type="Script" uid="uid://dgevs1np7hphm" path="res://HUD/Buttons/button_4.gd" id="4_sjiej"]
+[ext_resource type="Texture2D" uid="uid://4mylrjal56dm" path="res://assets/tilemaps/clouds.png" id="5_4sclt"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_kwhh3"]
-font_size = 32
+font_size = 24
+font_color = Color(1, 0.560784, 0.494118, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_4sclt"]
+font_size = 84
+font_color = Color(1, 0.560784, 0.494118, 1)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ywh4s"]
+texture = ExtResource("5_4sclt")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 4, 8, 4, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-7, 4, 7, 4, 7, 8, -7, 8)
+2:0/size_in_atlas = Vector2i(2, 1)
+2:0/0 = 0
+2:0/0/texture_origin = Vector2i(8, 0)
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-22, 3, 7, 3, 7, 8, -22, 8)
+4:0/size_in_atlas = Vector2i(2, 1)
+4:0/0 = 0
+4:0/0/texture_origin = Vector2i(8, 0)
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-23, 3, 6, 3, 6, 8, -23, 8)
+4:1/size_in_atlas = Vector2i(4, 2)
+4:1/0 = 0
+4:1/0/texture_origin = Vector2i(8, 8)
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-37, 2, 22, 2, 22, 8, -37, 8)
+0:1/size_in_atlas = Vector2i(4, 2)
+0:1/0 = 0
+0:1/0/texture_origin = Vector2i(8, 8)
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-35, 0, 19, 0, 19, 8, -35, 8)
+0:3/size_in_atlas = Vector2i(8, 2)
+0:3/0 = 0
+0:3/0/texture_origin = Vector2i(8, 8)
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-68, 3, 52, 3, 52, 8, -68, 8)
+0:5/size_in_atlas = Vector2i(5, 2)
+0:5/0 = 0
+0:5/0/texture_origin = Vector2i(0, 8)
+0:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-40, 4, 39, 4, 39, 8, -40, 8)
+5:5/size_in_atlas = Vector2i(3, 2)
+5:5/0 = 0
+5:5/0/texture_origin = Vector2i(0, 8)
+5:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-24, 4, 23, 4, 23, 8, -24, 8)
+
+[sub_resource type="TileSet" id="TileSet_ue4rx"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_ywh4s")
 
 [node name="Base" type="Node"]
 
@@ -35,6 +80,7 @@ script = ExtResource("1_4sclt")
 level_path = "uid://8bemcvusyanb"
 
 [node name="Button2" type="Button" parent="MainScreen/ScrollContainer/VBoxContainer"]
+z_index = 1
 layout_mode = 2
 size_flags_vertical = 3
 text = "Level Two"
@@ -42,6 +88,7 @@ script = ExtResource("2_ywh4s")
 level_path = "uid://doa5q45p3cifh"
 
 [node name="Button3" type="Button" parent="MainScreen/ScrollContainer/VBoxContainer"]
+z_index = 1
 layout_mode = 2
 size_flags_vertical = 3
 text = "Level Three"
@@ -53,18 +100,38 @@ layout_mode = 2
 size_flags_vertical = 3
 text = "Level Four"
 script = ExtResource("4_sjiej")
+level_path = "uid://e7grcg228hfa"
 
 [node name="Label" type="Label" parent="."]
+z_index = 1
 offset_left = 1200.0
 offset_top = 353.0
 offset_right = 1589.0
 offset_bottom = 542.0
 size_flags_horizontal = 8
-text = "W/A/S/D to Move
-Spacebar to Jump
-Up/Down for Jump Meter
-Escape for Menu"
+text = "> W/A/S/D to Move
+> Spacebar to Jump
+> Up/Down for Jump Meter
+> Escape for Menu"
 label_settings = SubResource("LabelSettings_kwhh3")
+
+[node name="Label2" type="Label" parent="."]
+z_index = 1
+offset_left = 631.0
+offset_top = 75.0
+offset_right = 1314.0
+offset_bottom = 264.0
+size_flags_horizontal = 8
+text = "Too Tired 2 Jump"
+label_settings = SubResource("LabelSettings_4sclt")
+horizontal_alignment = 1
+
+[node name="Terrain" type="TileMapLayer" parent="."]
+texture_filter = 1
+position = Vector2(0, -4)
+scale = Vector2(2, 2)
+tile_map_data = PackedByteArray("AAAWAAUAAAAAAAMAAAAeAAMAAAAAAAMAAAAjAAUAAAAAAAMAAAAqAAQAAAAAAAMAAAArAA0AAAAAAAMAAAAoAAsAAAAAAAMAAAAoAA8AAAAAAAMAAAA=")
+tile_set = SubResource("TileSet_ue4rx")
 
 [connection signal="pressed" from="MainScreen/ScrollContainer/VBoxContainer/Button" to="MainScreen/ScrollContainer/VBoxContainer/Button" method="on_pressed"]
 [connection signal="pressed" from="MainScreen/ScrollContainer/VBoxContainer/Button2" to="MainScreen/ScrollContainer/VBoxContainer/Button2" method="on_pressed"]

@@ -1,13 +1,13 @@
-[gd_scene load_steps=9 format=4 uid="uid://dgu2r800e4dcl"]
+[gd_scene load_steps=9 format=4 uid="uid://e7grcg228hfa"]
 
-[ext_resource type="Texture2D" uid="uid://4mylrjal56dm" path="res://assets/tilemaps/clouds.png" id="1_absw3"]
-[ext_resource type="Script" uid="uid://dx2k0b7v0x6ka" path="res://Levels/wind.gd" id="1_padch"]
-[ext_resource type="PackedScene" uid="uid://r6buhj6o86lc" path="res://killzone.tscn" id="2_padch"]
-[ext_resource type="PackedScene" uid="uid://bjmaox43csp4c" path="res://level_clear.tscn" id="3_uwxw1"]
-[ext_resource type="PackedScene" uid="uid://bxs8alsuqmhqj" path="res://Player/player.tscn" id="4_ay5qi"]
+[ext_resource type="Script" uid="uid://bltohamx3r0wl" path="res://dynamic_wind.gd" id="1_ujo87"]
+[ext_resource type="Texture2D" uid="uid://4mylrjal56dm" path="res://assets/tilemaps/clouds.png" id="2_hvgxt"]
+[ext_resource type="PackedScene" uid="uid://r6buhj6o86lc" path="res://killzone.tscn" id="3_waaef"]
+[ext_resource type="PackedScene" uid="uid://bjmaox43csp4c" path="res://level_clear.tscn" id="4_fqog2"]
+[ext_resource type="PackedScene" uid="uid://bxs8alsuqmhqj" path="res://Player/player.tscn" id="5_ben3k"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_padch"]
-texture = ExtResource("1_absw3")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_77xid"]
+texture = ExtResource("2_hvgxt")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 4, 8, 4, 8, 8, -8, 8)
 1:0/0 = 0
@@ -41,27 +41,27 @@ texture = ExtResource("1_absw3")
 5:5/0/texture_origin = Vector2i(0, 8)
 5:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-24, 4, 23, 4, 23, 8, -24, 8)
 
-[sub_resource type="TileSet" id="TileSet_ck3gp"]
+[sub_resource type="TileSet" id="TileSet_m0m22"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_padch")
+sources/0 = SubResource("TileSetAtlasSource_77xid")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_padch"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_utic7"]
 particle_flag_disable_z = true
 emission_shape = 3
 emission_box_extents = Vector3(200, 200, 1)
-gravity = Vector3(-200, 0, 0)
+gravity = Vector3(0, -120, 0)
 scale_min = 5.0
 scale_max = 6.0
 
-[node name="Level3" type="Node2D"]
-script = ExtResource("1_padch")
+[node name="Level4" type="Node2D"]
+script = ExtResource("1_ujo87")
 
 [node name="Terrain" type="TileMapLayer" parent="."]
 texture_filter = 1
 position = Vector2(279, 72)
 scale = Vector2(2, 2)
-tile_map_data = PackedByteArray("AAAOAP//AAAAAAMAAAAgAPz/AAAAAAMAAAAuAPD/AAAAAAMAAAA7AN//AAAAAAMAAAAmAND/AAAAAAMAAABHAMj/AAAAAAMAAAA6AM//AAAAAAMAAABaAMz/AAAAAAMAAABuAMH/AAAAAAMAAAB0AKv/AAAAAAMAAAAXAP7/AAAAAAEAAAAnAPf/AAAAAAEAAAAqAOj/AAAAAAEAAAAzAOT/AAAAAAEAAAA0ANn/AAAAAAEAAAAwAM3/AAAAAAEAAAA/AMr/AAAAAAEAAABQAMv/AAAAAAEAAABkAM//AAAAAAEAAABqAMv/AAAAAAEAAABjAMb/AAAAAAEAAAByALv/AAAEAAAAAABuALb/AAACAAAAAABoAK3/AAACAAAAAABhAKn/AAACAAAAAABqAKP/AAACAAAAAAA=")
-tile_set = SubResource("TileSet_ck3gp")
+tile_map_data = PackedByteArray("AAAOAP//AAAAAAMAAAB0AKv/AAAAAAMAAABoAK3/AAACAAAAAABhAKn/AAACAAAAAABqAKP/AAACAAAAAAAdAPz/AAAEAAEAAAAZAPX/AAAEAAEAAAAPAPH/AAAEAAEAAAAYAOz/AAAEAAEAAAAMAOf/AAAEAAEAAAAdAOb/AAAEAAEAAAAJAPf/AAAAAAEAAAAVAOH/AAAAAAMAAAAoAOL/AAAAAAMAAAA5AOX/AAAAAAMAAABHAOH/AAAAAAMAAABQAN//AAAEAAEAAABcANz/AAAEAAEAAABXANf/AAAEAAEAAABUANf/AAAEAAEAAABMANX/AAAEAAEAAABDANT/AAAAAAMAAAAzAM7/AAAAAAEAAAAqAMn/AAAAAAEAAAAwAMX/AAACAAAAAAAwAL//AAACAAAAAAA5ANL/AAACAAAAAAA=")
+tile_set = SubResource("TileSet_m0m22")
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -1
@@ -72,16 +72,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.941345, 0.498602, 0.824896, 1)
+color = Color(0.968432, 0.321386, 0.303793, 1)
 
-[node name="Killzone" parent="." instance=ExtResource("2_padch")]
-position = Vector2(1218, 206)
+[node name="Killzone" parent="." instance=ExtResource("3_waaef")]
+position = Vector2(1315, 174)
 
-[node name="LevelClear" parent="." instance=ExtResource("3_uwxw1")]
-position = Vector2(3503, -3173)
-
-[node name="Player" parent="." instance=ExtResource("4_ay5qi")]
-position = Vector2(721, -91)
+[node name="LevelClear" parent="." instance=ExtResource("4_fqog2")]
+position = Vector2(1816, -2159)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 position = Vector2(2819, -1544)
@@ -89,4 +86,13 @@ scale = Vector2(20.2759, -21.4105)
 amount = 1000
 trail_enabled = true
 trail_lifetime = 4.0
-process_material = SubResource("ParticleProcessMaterial_padch")
+process_material = SubResource("ParticleProcessMaterial_utic7")
+
+[node name="WindSwitch" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="Player" parent="." instance=ExtResource("5_ben3k")]
+position = Vector2(709, -46)
+
+[connection signal="timeout" from="WindSwitch" to="." method="on_timer_timeout"]
